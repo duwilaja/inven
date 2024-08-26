@@ -18,7 +18,7 @@ $conn=connect();
 /*$rs=exec_qry($conn,"select iso,name from core_province order by name");
 $o_prov=fetch_all($rs);
 $rs=exec_qry($conn,"select rowid,name from core_location order by name");
-$o_loc=fetch_all($rs);*/
+$o_loc=fetch_all($rs);*/ 
 disconnect($conn);
 
 include "inc.head.php";
