@@ -48,8 +48,8 @@ include "inc.menutop.php";
 						<div class="card-options ">
 							<a href="#" onclick="$('#datas').val('');" data-toggle="modal" data-target="#modal_batch" title="Batch" class=""><i class="fe fe-upload"></i></a>
 							<a href="#" onclick="openForm(0);" data-toggle="modal" data-target="#myModal" title="Add" class=""><i class="fe fe-plus"></i></a>
-							<a href="#" onclick="openBAI();" data-toggle="modal" data-target="#modal_ba" title="BAI" class=""><i class="fe fe-file"></i></a>
-							<!--a href="#" title="Expand/Collapse" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+							<!--a href="#" onclick="openBAI();" data-toggle="modal" data-target="#modal_ba" title="BAI" class=""><i class="fe fe-file"></i></a>
+							<a href="#" title="Expand/Collapse" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
 							<a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x"></i></a-->
 						</div>
 					</div>
@@ -63,9 +63,9 @@ include "inc.menutop.php";
 										<th>Addr</th>
 										<th>City</th>
 										<th>Prov</th>
-										<th>Internet B/W</th>
+										<!--th>Internet B/W</th>
 										<th>VPN B/W</th>
-										<th>BAI</th>
+										<th>BAI</th-->
 									</tr>
 								</thead>
 								<tbody>
@@ -92,7 +92,7 @@ include "inc.menutop.php";
 <input type="hidden" name="rowid" id="rowid" value="0">
 <input type="hidden" name="mnu" value="<?php echo $menu?>">
 <input type="hidden" id="sv" name="sv" />
-<input type="hidden" name="cols" value="locid,name,addr,city,prov,postal,area,lat,lng,lnk,bw,hrminutediff" />
+<input type="hidden" name="cols" value="locid,name,addr,city,prov,postal,area,lat,lng" />
 <input type="hidden" name="tname" value="core_location" />
 		
 		  <div class="row mb-3">
@@ -150,7 +150,7 @@ include "inc.menutop.php";
 				<button type="button" onclick="mappicker('#lat','#lng');" class="btn btn-info"><i class="fa fa-map-pin"></i></button>
 			</div>
 		  </div>
-		  <div class="row mb-3">
+		  <!--div class="row mb-3">
 			<div class="form-group col-md-4">
 				<label>VPN B/W</label>
 				<input type="text" id="lnk" name="lnk" placeholder="..." class="form-control">
@@ -163,7 +163,7 @@ include "inc.menutop.php";
 				<label>TimeDiff(minutes)</label>
 				<input type="text" id="hrminutediff" name="hrminutediff" placeholder="..." class="form-control">
 			</div>
-		  </div>
+		  </div-->
 		  
 		</form>
 	  </div>
@@ -267,7 +267,7 @@ include "inc.foot.php";
 include "inc.js.php";
 
 $tname="core_location";
-$cols="locid,name,addr,city,prov,bw,lnk,bai,rowid";
+$cols="locid,name,addr,city,prov,rowid";
 $csrc="name,addr,city,prov";
 
 ?>
