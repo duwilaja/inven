@@ -5,12 +5,12 @@ $production = false;
 function connect($prod=false){
 //prod
 $env['prod']['server'] = 'localhost';
-$env['prod']['db'] = 'nimdb';
-$env['prod']['usr'] = 'nimnms';
+$env['prod']['db'] = 'inven';
+$env['prod']['usr'] = 'root';
 $env['prod']['pwd'] = 'Bismillah10x';
 //dev
 $env['dev']['server'] = 'localhost';
-$env['dev']['db'] = 'nimdb';
+$env['dev']['db'] = 'inven';
 $env['dev']['usr'] = 'root';
 $env['dev']['pwd'] = '';
 
