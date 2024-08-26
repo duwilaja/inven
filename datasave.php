@@ -6,7 +6,7 @@ include 'inc.db.php';
 
 //require_once('lib/SubnetCalculator.php');
 
-
+/*
 require 'phpmailer/Exception.php';
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
@@ -14,7 +14,7 @@ require 'phpmailer/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
-
+*/
 
 function sendmail($to,$sub,$bod){
 	
@@ -179,86 +179,7 @@ if($mn=='mkary_batch'){
 	$res=batch_input($conn,"nik");
 	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
 }
-if($mn=='hrleav'||$mn=='myleav'){
-	$res=crud($conn);
-	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
-}
-if($mn=='hratt'){
-	if(post('typ')=='Masuk'||post('typ')=='Terlambat'){
-		$res=crud($conn,"status","'onsite'");
-	}else{
-		$res=crud($conn,"status","'offduty'");
-	}
-	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
-}
-if($mn=='hrrem'||$mn=='myrem'){
-	$fname=strtotime("now");
-	$upload=upload_file("attc","remattc/",$fname);
-	$attc=$upload[0]?$upload[1]:"";
-	if($attc==''&&post('fattc')!='') $attc=post('fattc');
-	$stts=post('status')==''?'pending':post('status');
-	$res=crud($conn,"attc,status","'$attc','$stts'");
-	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
-}
-if($mn=='cekin'){
-	if(trim($s_NIK)==''){
-		$msgs="NIK is blank";
-	}else{
-		$sql="select * from hr_attend where dt=date(now()) and nik='$s_NIK'";
-		$rs=fetch_alla(exec_qry($conn,$sql));
-		if(count($rs)>0){
-			$sql="update hr_attend set tmin=time(now()),edin=time(now()),status='onsite',typ='Masuk' where tmin='00:00:00' and dt=date(now()) and nik='$s_NIK'";
-		}else{
-			$sql="insert into hr_attend (nik,dt,tmin,edin,status,typ) values ('$s_NIK',date(now()),time(now()),time(now()),'onsite','Masuk')";
-		}
-		$rs=exec_qry($conn,$sql);
-		if(db_error($conn)==''){
-			$code="200"; $ttl="success"; $msgs="Data updated";
-		}
-	}
-}
-if($mn=='cekout'){
-	if(trim($s_NIK)==''){
-		$msgs="NIK is blank";
-	}else{
-		$sql="select * from hr_attend where dt=date(now()) and nik='$s_NIK'";
-		$rs=fetch_alla(exec_qry($conn,$sql));
-		if(count($rs)>0){
-			$sql="update hr_attend set tmout=time(now()),edout=time(now()),status='onsite',typ='Masuk' where tmout='00:00:00' and tmin<>'00:00:00' and dt=date(now()) and nik='$s_NIK'";
-		}else{
-			$sql="insert into hr_attend (nik,dt,tmin,edin,status,typ) values ('$s_NIK',date(now()),time(now()),time(now()),'onsite','Masuk')";
-		}
-		$rs=exec_qry($conn,$sql);
-		if(db_error($conn)==''){
-			$code="200"; $ttl="success"; $msgs="Data updated";
-		}
-	}
-}
 
-if($mn=='mport'){
-	$res=crud($conn);
-	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
-}
-if($mn=='mportall'){
-	$where = "(1=1)";
-	$where.=post("host")!=""?" and host like '".post("host")."'":"";
-	$where.=post("ifname")!=""?" and ifname like '".post("ifname")."'":"";
-	$sql="update core_ports set traffic='".post("traffic")."' where $where";
-	$rs=exec_qry($conn,$sql);
-	if(db_error($conn)==''){
-		$code="200"; $ttl="success"; $msgs="Data updated";
-	}else{
-		$msgs=db_error($conn);
-	}
-}
-if($mn=='severity'){
-	$res=crud($conn);
-	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
-}
-if($mn=='sla'){
-	$res=crud($conn);
-	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];
-}
 if($mn=='location'){
 	$res=crud($conn);
 	$code=$res[0]; $ttl=$res[1]; $msgs=$res[2];

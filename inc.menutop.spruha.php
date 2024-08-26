@@ -18,7 +18,7 @@
 				<ul class="menu-nav nav">
 					<li class="nav-header"><span class="nav-label">&nbsp;</span></li>
 					<li class="nav-header"><span class="nav-label">&nbsp;</span></li>
-<?php if(isset($myprof)){?>
+<?php if(isset($myprof)&&false){?>
 					<li class="nav-header"><span class="nav-label">My Profile</span></li>
 					<li class="nav-item">
 						<a class="nav-link" href="prof_att<?php echo $ext?>">
@@ -44,7 +44,7 @@
 							<span class="sidemenu-label">Reimbursment</span>
 						</a>
 					</li>
-<?php }else{?>
+<?php }//else{?>
 					<?php if($is_nms){?>
 					<li class="nav-item">
 						<a class="nav-link with-sub" href="javascript:void(0)">
@@ -104,9 +104,10 @@
 							<span class="sidemenu-label">Asset</span>
 						</a>
 						<ul class="nav-sub">
-							<li class="nav-sub-item"><a class="nav-sub-link ass" href="ass_hom<?php echo $ext?>">Dashboard</a></li>
-							<!--li class="nav-sub-item hidden"><a class="nav-sub-link asetloc" href="ass_mapsx<?php echo $ext?>">Map View</a></li-->
-							<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_ass<?php echo $ext?>">Assets</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="ass_hom<?php echo $ext?>">Dashboard</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="m_ass<?php echo $ext?>">Assets</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="m_inven<?php echo $ext?>">Inventory</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="m_po<?php echo $ext?>">PO</a></li>
 						</ul>
 					</li>
 					<?php }?>
@@ -165,10 +166,13 @@
 					<?php if($is_asset && $s_LVL!=12){?>
 							<li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">Asset</a>
 							<ul class="sub-nav-sub">
-								<li class="nav-sub-item"><a class="nav-sub-link mlov" href="r_asssum<?php echo $ext?>">Summary</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="r_asss<?php echo $ext?>">Assets</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="r_asssum<?php echo $ext?>">Summary</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="r_asss<?php echo $ext?>">Assets</a></li>
 							</ul>
 							</li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="r_inven<?php echo $ext?>">Inventory</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="r_po<?php echo $ext?>">PO</a></li>
+							
 					<?php }?>
 					<?php if($is_hr && ($s_LVL==0||$s_LVL==1)){?>
 							<li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">HR</a>
@@ -183,7 +187,7 @@
 						</ul>
 					</li>
 					<?php if($s_LVL==0||$s_LVL==1){?>
-					<li class="nav-header"><span class="nav-label">Setup & Tools</span></li>
+					<!--li class="nav-header"><span class="nav-label">Setup & Tools</span></li-->
 					<li class="nav-item">
 						<a class="nav-link with-sub" href="javascript:void(0)">
 							<span class="shape1"></span>
@@ -192,44 +196,43 @@
 							<span class="sidemenu-label">Setup</span>
 						</a>
 						<ul class="nav-sub">
-							<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_loc<?php echo $ext?>">Locations</a></li>
-							<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_events<?php echo $ext?>">Events</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="m_loc<?php echo $ext?>">Locations</a></li>
+							<li class="nav-sub-item"><a class="nav-sub-link" href="m_ven<?php echo $ext?>">Vendors</a></li>
+							<!--li class="nav-sub-item"><a class="nav-sub-link" href="m_events<?php echo $ext?>">Events</a></li>
 							<li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">Monitoring</a>
 							<ul class="sub-nav-sub">
 								<?php if($s_LVL==0){?>
-								<li class="nav-sub-item"><a class="nav-sub-link mlov" href="m_lov<?php echo $ext?>">LoV</a></li>
-								<!--li class="nav-sub-item"><a class="nav-sub-link muser" href="m_user<?php echo $ext?>">User</a></li-->
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_lov<?php echo $ext?>">LoV</a></li>
 								<?php }?>
-								<li class="nav-sub-item"><a class="nav-sub-link mlov" href="m_device<?php echo $ext?>">Devices</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link mlov" href="m_topo<?php echo $ext?>">Topology</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_sla<?php echo $ext?>">SLA</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link mlov" href="m_severity<?php echo $ext?>">Severity</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_bg<?php echo $ext?>">Controls</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_ports<?php echo $ext?>">Ports</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_device<?php echo $ext?>">Devices</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_topo<?php echo $ext?>">Topology</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_sla<?php echo $ext?>">SLA</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_severity<?php echo $ext?>">Severity</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_bg<?php echo $ext?>">Controls</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_ports<?php echo $ext?>">Ports</a></li>
 							</ul>
 							</li>
 							<li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">Ticketing</a>
 							<ul class="sub-nav-sub">
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_serv<?php echo $ext?>">Services</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_ticat<?php echo $ext?>">Categories</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_serv<?php echo $ext?>">Services</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_ticat<?php echo $ext?>">Categories</a></li>
 							</ul>
-							</li>
+							</li-->
 							<li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">Asset</a>
 							<ul class="sub-nav-sub">
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_brand<?php echo $ext?>">Brand</a></li>
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_ascat<?php echo $ext?>">Categories</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_brand<?php echo $ext?>">Brand</a></li>
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_ascat<?php echo $ext?>">Categories</a></li>
 							</ul>
 							</li>
-							<li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">HR</a>
+							<!--li class="nav-sub-item"><a class="nav-sub-link sub-with-sub" href="javascript:void(0)">HR</a>
 							<ul class="sub-nav-sub">
-								<li class="nav-sub-item"><a class="nav-sub-link muser" href="m_kar<?php echo $ext?>">Employee</a></li>
-								<!--li class="nav-sub-item"><a class="nav-sub-link muser" href="m_kset<?php echo $ext?>">Setting</a></li-->
+								<li class="nav-sub-item"><a class="nav-sub-link" href="m_kar<?php echo $ext?>">Employee</a></li>
 							</ul>
-							</li>
+							</li-->
 						</ul>
 					</li>
 					<?php }?>
-					<li class="nav-item">
+					<!--li class="nav-item">
 						<a class="nav-link with-sub" href="javascript:void(0)">
 							<span class="shape1"></span>
 							<span class="shape2"></span>
@@ -242,8 +245,8 @@
 							<li class="nav-sub-item"><a class="nav-sub-link muser" href="t_trace<?php echo $ext?>">Trace</a></li>
 							<li class="nav-sub-item"><a class="nav-sub-link muser" href="t_snmp<?php echo $ext?>">SNMP</a></li>
 						</ul>
-					</li>
-<?php }?>
+					</li-->
+<?php //}?>
 				</ul>
 				<!-- END menu -->
 				</div>

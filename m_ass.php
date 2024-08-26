@@ -104,7 +104,7 @@ include "inc.menutop.php";
 <input type="hidden" name="rowid" id="rowid" value="0">
 <input type="hidden" name="mnu" value="<?php echo $menu?>">
 <input type="hidden" id="sv" name="sv" />
-<input type="hidden" name="cols" value="assid,assname,assdesc,loc,brand,cat,warexp,gr,stts,sn,licexp" />
+<input type="hidden" name="cols" value="assid,assname,assdesc,loc,brand,cat,warexp,gr,stts,sn,licexp,po" />
 <input type="hidden" name="tname" value="ass_ets" />
 		
 		  <div class="row mb-3">
@@ -144,24 +144,28 @@ include "inc.menutop.php";
 			</div>
 		  </div>
 		  <div class="row mb-3">
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-4">
 				<label>Brand</label>
 				<select class="form-control " id="brand" name="brand">
 					<option value="">-</option>
 					<?php echo options($o_brn)?>
 				</select>
 			</div>
-			<div class="form-group col-md-6">
+			<div class="form-group col-md-4">
 				<label>Category</label>
 				<select class="form-control " id="cat" name="cat">
 					<option value="">-</option>
 					<?php echo options($o_cat)?>
 				</select>
 			</div>
+			<div class="form-group col-md-4">
+				<label>PO#</label>
+				<input type="text" id="po" name="po" placeholder="..." class="form-control">
+			</div>
 		  </div>
 		  <div class="row mb-3">
 			<div class="form-group col-md-4">
-				<label>Purchased</label>
+				<label>Received</label>
 				<div class="input-group">
 					<input type="text" id="gr" name="gr" placeholder="" class="form-control datepicker">
 					<div class="input-group-append"><span class="input-group-text"><i class="fa fa-calendar"></i></span></div>
