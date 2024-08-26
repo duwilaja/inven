@@ -92,7 +92,7 @@ include "inc.menutop.php";
 <input type="hidden" name="rowid" id="rowid" value="0">
 <input type="hidden" name="mnu" value="<?php echo $menu?>">
 <input type="hidden" id="sv" name="sv" />
-<input type="hidden" name="cols" value="locid,name,addr,city,prov,postal,area,lat,lng,lnk,bw,hrminutediff" />
+<input type="hidden" name="cols" value="locid,name,addr,city,prov,postal,area,lat,lng" />
 <input type="hidden" name="tname" value="core_location" />
 		
 		  <div class="row mb-3">
@@ -150,7 +150,7 @@ include "inc.menutop.php";
 				<button type="button" onclick="mappicker('#lat','#lng');" class="btn btn-info"><i class="fa fa-map-pin"></i></button>
 			</div>
 		  </div>
-		  <div class="row mb-3">
+		  <!--div class="row mb-3">
 			<div class="form-group col-md-4">
 				<label>VPN B/W</label>
 				<input type="text" id="lnk" name="lnk" placeholder="..." class="form-control">
@@ -162,7 +162,7 @@ include "inc.menutop.php";
 			<div class="form-group col-md-4">
 				<label>TimeDiff(minutes)</label>
 				<input type="text" id="hrminutediff" name="hrminutediff" placeholder="..." class="form-control">
-			</div>
+			</div-->
 		  </div>
 		  
 		</form>
